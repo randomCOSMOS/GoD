@@ -7,14 +7,28 @@
 </head>
 
 <body>
-    
-    <header id="header">
-        <h1>{{topic}}</h1>
-        <cite>{{by}}</cite>
+
+    <header>
+        <div id="topic" class="topic">
+            <h1>{{topic}}</h1>
+            <cite>{{by}}</cite>
+        </div>
+
+        <div id="welcome" class="welcome">
+            <h1>{{welcome}}</h1>
+        </div>
+
+        <div id="loader" class="loader">
+            <h1>GoD</h1>
+            <div class="loading">
+                <div class="bar"></div>
+            </div>
+        </div>
     </header>
-    
-    
+
+
     <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script src="./js/index.js"></script>
 </body>
 

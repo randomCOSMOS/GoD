@@ -22,6 +22,13 @@ const menuTemplate = [
             },
             {type: 'separator'},
             {
+                label: "Dev Tool",
+                accelerator: 'f12',
+                click(){
+                    mainWindow.webContents.openDevTools();
+                }
+            },
+            {
                 label: 'Quit',
                 accelerator: process.platform === 'darwin' ? 'command+Q' : 'ctrl+Q',
                 click() {
@@ -35,6 +42,7 @@ const menuTemplate = [
 // main stuff
 app.on('ready', () => {
     mainWindow = new BrowserWindow({});
+    mainWindow.setFullScreen(true);
 
     mainWindow.loadURL(url.format({
         pathname: path.join(__dirname, 'src/index.html'),
