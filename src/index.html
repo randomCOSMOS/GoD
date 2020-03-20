@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/intro.css">
+    <link rel="stylesheet" href="./css/desktop.css">
     <title>GoD</title>
 </head>
 
@@ -19,17 +20,44 @@
         </div>
 
         <div id="loader" class="loader">
-            <h1>GoD</h1>
+            <img src="../assets/logo/logo-white.svg" alt="logo">
             <div class="loading">
                 <div class="bar"></div>
             </div>
         </div>
     </header>
 
+    <div id="desktop" class="desktop">
+
+        <div class="icons" id="icons">
+            <div class="col1">
+                <div class="icon" id="giphy">
+                    <img src="../assets/icon/Poweredby_100px-White_VertLogo.png" alt="giphy">
+                    <p>GIPHY</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="taskbar" class="taskbar">
+            <div class="start" id="start">
+                <img src="../assets/logo/logo-white.svg" alt="logo">
+            </div>
+
+            <div class="dateAndTime" id="dateAndTime">
+                <span id="time"></span>
+                <br>
+                <span id="date"></span>
+            </div>
+        </div>
+
+    </div>
+
 
     <script src="../node_modules/vue/dist/vue.js"></script>
     <script src="../node_modules/jquery/dist/jquery.js"></script>
-    <script src="./js/index.js"></script>
+    <script src="./js/intro.js"></script>
+    <script src="./js/desktop.js"></script>
+    <script src="./js/apps.js"></script>
 </body>
 
 </html>
