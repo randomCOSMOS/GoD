@@ -1,5 +1,9 @@
 // importing stuff
-const {app, BrowserWindow, Menu} = require('electron');
+const {
+    app,
+    BrowserWindow,
+    Menu
+} = require('electron');
 const url = require('url');
 const path = require('path');
 
@@ -8,45 +12,47 @@ let mainWindow;
 let addWindow
 
 // menus
-const menuTemplate = [
-    {
-        label: 'File',
-        submenu: [
-            {
-                label: 'Reload',
-                accelerator: process.platform === 'darwin' ? 'command+R' : 'ctrl+R',
-                click() {
-                    mainWindow.reload();
-                }
-            },
-            {
-                label: "Dev Tool",
-                accelerator: 'f12',
-                click() {
-                    addWindow.webContents.openDevTools();
-                }
-            },
-            {type: 'separator'},
-            {
-                label: 'Quit',
-                accelerator: process.platform === 'darwin' ? 'command+Q' : 'ctrl+Q',
-                click() {
-                    app.exit();
-                }
-            },
-            {
-                label: 'test',
-                click(){
-                    createWindow()
-                }
+const menuTemplate = [{
+    label: 'File',
+    submenu: [{
+            label: 'Reload',
+            accelerator: process.platform === 'darwin' ? 'command+R' : 'ctrl+R',
+            click() {
+                mainWindow.reload();
             }
-        ]
-    }
-];
+        },
+        {
+            label: "Dev Tool",
+            accelerator: 'f12',
+            click() {
+                addWindow.webContents.openDevTools();
+            }
+        },
+        {
+            type: 'separator'
+        },
+        {
+            label: 'Quit',
+            accelerator: process.platform === 'darwin' ? 'command+Q' : 'ctrl+Q',
+            click() {
+                app.exit();
+            }
+        },
+        {
+            label: 'test',
+            click() {
+                createWindow()
+            }
+        }
+    ]
+}];
 
-const ctxMenu = [
-    {label: "New Folder"},
-    {label: "Select All"}
+const ctxMenu = [{
+        label: "New Folder"
+    },
+    {
+        label: "Select All"
+    }
 ];
 
 // main stuff
