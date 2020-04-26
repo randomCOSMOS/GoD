@@ -1,3 +1,8 @@
+const {
+    ipcRenderer
+} = require('electron')
+// console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
+
 let desktopBackground = '../assets/background/mist.jpg';
 $('#desktop').css('background-image', `url(${desktopBackground})`);
 
@@ -14,3 +19,7 @@ function updateTime() {
 }
 
 setInterval(updateTime, 1000);
+
+$("#giphy").on('click', () => {
+    ipcRenderer.send('open', 'giphy');
+})

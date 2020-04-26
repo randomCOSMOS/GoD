@@ -1,12 +1,12 @@
 {
-  "name": "desktop_app",
-  "productName": "GoD",
-  "version": "1.0.0",
-  "description": "Just a test app",
+  "name": "god",
+  "version": "1.5.0",
+  "description": "A OS (sort of)",
   "main": "main.js",
   "scripts": {
     "test": "electron .",
-    "build": "electron-packager ."
+    "build": "electron-builder -w",
+    "pack": "electron-packager ."
   },
   "author": "RANDOM cosmos",
   "license": "MIT",
@@ -14,7 +14,19 @@
     "electron": "^8.0.3"
   },
   "dependencies": {
-    "jquery": "^3.4.1",
     "vue": "^2.6.11"
+  },
+  "build": {
+    "appId": "com.random.god",
+    "productName": "God",
+    "copyright": "Copyright © 2020 RANDOM cosmos",
+    "win": {
+      "icon": "./assets/icon/ICON.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "createDesktopShortcut": true,
+      "allowToChangeInstallationDirectory": true
+    }
   }
 }

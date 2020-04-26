@@ -31,3 +31,4 @@ function showDesktop() {
 setTimeout(showWelcome, 4000);
 setTimeout(showLoader, 8000);
 setTimeout(showDesktop, 19000);
+// setTimeout(showDesktop, 100);

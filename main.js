@@ -2,36 +2,20 @@
 const {
     app,
     BrowserWindow,
-    Menu
+    Menu,
+    ipcMain
 } = require('electron');
 const url = require('url');
 const path = require('path');
 
 // variables
 let mainWindow;
-let addWindow
+let giphyWindow;
 
 // menus
 const menuTemplate = [{
     label: 'File',
     submenu: [{
-            label: 'Reload',
-            accelerator: process.platform === 'darwin' ? 'command+R' : 'ctrl+R',
-            click() {
-                mainWindow.reload();
-            }
-        },
-        {
-            label: "Dev Tool",
-            accelerator: 'f12',
-            click() {
-                addWindow.webContents.openDevTools();
-            }
-        },
-        {
-            type: 'separator'
-        },
-        {
             label: 'Quit',
             accelerator: process.platform === 'darwin' ? 'command+Q' : 'ctrl+Q',
             click() {
@@ -39,14 +23,25 @@ const menuTemplate = [{
             }
         },
         {
-            label: 'test',
+            type: 'separator'
+        },
+        {
+            label: 'op',
             click() {
-                createWindow()
+                giphyWindow.toggleDevTools()
             }
-        }
+        },
+        {
+            label: 'reload',
+            accelerator: 'ctrl+R',
+            click() {
+                mainWindow.reload()
+            }
+        },
     ]
 }];
 
+// context menu
 const ctxMenu = [{
         label: "New Folder"
     },
@@ -57,7 +52,11 @@ const ctxMenu = [{
 
 // main stuff
 app.on('ready', () => {
-    mainWindow = new BrowserWindow({});
+    mainWindow = new BrowserWindow({
+        webPreferences: {
+            nodeIntegration: true
+        }
+    });
     mainWindow.setFullScreen(true);
 
     mainWindow.loadURL(url.format({
@@ -75,16 +74,25 @@ app.on('ready', () => {
     });
 });
 
-function createWindow() {
-    addWindow = new BrowserWindow({
+// giphy app
+function openGiphy() {
+    giphyWindow = new BrowserWindow({
         width: 3000,
         height: 1000,
         title: 'Get a GIF'
     });
 
-    addWindow.loadURL(url.format({
-        pathname: path.join(__dirname, 'src/gag.html'),
+    giphyWindow.loadURL(url.format({
+        pathname: path.join(__dirname, 'src/app/giphy/gag.html'),
         protocol: 'file:',
         slashes: true
     })).then();
 }
+
+// opening apps
+ipcMain.on('open', (event, arg) => {
+    if (arg == 'giphy') {
+        openGiphy();
+        console.log('done')
+    }
+})
