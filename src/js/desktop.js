@@ -16,7 +16,6 @@ function updateTime() {
     $("#date").text(`${today}-${month}-${fullYear}`);
     $("#time").text(`${hour}:${minutes}`);
 }
-
 setInterval(updateTime, 1000);
 
 $("#giphy").on('click', () => {
