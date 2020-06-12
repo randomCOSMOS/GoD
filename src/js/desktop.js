@@ -16,7 +16,7 @@ function updateTime() {
     $("#date").text(`${today}-${month}-${fullYear}`);
     $("#time").text(`${hour}:${minutes}`);
 }
-setInterval(updateTime, 1000);
+setInterval(updateTime, 1000*60);
 
 $("#giphy").on('click', () => {
     ipcRenderer.send('open', 'giphy');

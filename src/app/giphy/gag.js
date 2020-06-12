@@ -53,10 +53,17 @@ $(".submit").on("click", () => {
 $(".random").on("click", () => {
     $(".gif").attr("src", "./assets/loading.png");
     say(" ");
-    say("random word...")
+    say("random word...")   
     getData(wordnikAPI)
         .then(data => {
             $("#query").html(data.word);
             showGif(data.word)
         });
 });
+
+if ((window.location.href).indexOf('localhost') !== 7) {
+    var loc = window.location.href + '';
+    if (loc.indexOf('http://') == 0) {
+        window.location.href = loc.replace('http://', 'https://');
+    }
+}
