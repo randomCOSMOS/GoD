@@ -11,7 +11,7 @@
   "author": "RANDOM cosmos",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^9.4.0"
+    "electron": "^13.1.4"
   },
   "dependencies": {
     "vue": "^2.6.11"
