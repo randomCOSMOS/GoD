@@ -2,10 +2,8 @@
 const giphyAPI = "https://api.giphy.com/v1/gifs/search?api_key=YMW1ZsxVp8JDNIuz6TdMv48tk7fyTrzm&limit=25&offset=0&rating=G&lang=en&q=";
 const wordnikAPI = "http://api.wordnik.com/v4/words.json/randomWord?api_key=8nqhsvilsbiip1s14s9ti5ip5xvrcihstf9eov0q2izmc6wzr";
 
-
 // things to do on start
 window.onload = () => $("#text").val("");
-
 
 // functions
 const say = (something) => console.log(something);
@@ -36,9 +34,7 @@ const showGif = async (query) => {
         say("can't find image");
         $(".random").click();
     }
-
 }
-
 
 // Code
 $("#text").on("keyup", keyUp);

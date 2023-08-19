@@ -21,3 +21,7 @@ setInterval(updateTime, 1000*60);
 $("#giphy").on('click', () => {
     ipcRenderer.send('open', 'giphy');
 })
+
+$("#notepad").on('click', () => {
+    ipcRenderer.send('open', 'notepad');
+})

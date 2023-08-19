@@ -28,17 +28,25 @@
 
 .icon{
     cursor: pointer;
+    width: 50px;
 }
 
-.icon img{
+#giphy img{
     width: 40px;
     height: auto;
 }
 
+#notepad img{
+    width: 50px;
+    height: auto;
+}
+
 .icon p{
-    margin: 0px;
+    margin-top: 0px;
+    text-align: center;
     font-family: Roboto;
     font-weight: 700;
+    font-size: .8em;
 }
 
 .taskbar {

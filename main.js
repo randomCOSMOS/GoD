@@ -26,12 +26,6 @@ const menuTemplate = [{
             type: 'separator'
         },
         {
-            label: 'op',
-            click() {
-                giphyWindow.toggleDevTools()
-            }
-        },
-        {
             label: 'reload',
             accelerator: 'ctrl+R',
             click() {
@@ -52,11 +46,13 @@ const ctxMenu = [{
 
 // main stuff
 app.on('ready', () => {
-    mainWindow = new BrowserWindow({
+    const mainWindow = new BrowserWindow({
         webPreferences: {
             nodeIntegration: true
         }
     });
+        
+    // mainWindow.webContents.openDevTools();
     mainWindow.setFullScreen(true);
 
     mainWindow.loadURL(url.format({
@@ -75,7 +71,7 @@ app.on('ready', () => {
 });
 
 // giphy app
-function openGiphy() {
+const openGiphy = () => {
     giphyWindow = new BrowserWindow({
         width: 3000,
         height: 1000,
@@ -89,10 +85,27 @@ function openGiphy() {
     })).then();
 }
 
+const openNotepad = () => {
+    giphyWindow = new BrowserWindow({
+        width: 1000,
+        height: 700,
+        title: 'NOTEPAD'
+    });
+
+    giphyWindow.loadURL(url.format({
+        pathname: path.join(__dirname, 'src/app/notepad/np.html'),
+        protocol: 'file:',
+        slashes: true
+    })).then();
+}
+
 // opening apps
 ipcMain.on('open', (event, arg) => {
     if (arg == 'giphy') {
         openGiphy();
-        console.log('done')
+        console.log('giphy opened')
+    } else if (arg == 'notepad') {
+        openNotepad();
+        console.log('Notepad opened')
     }
 })
