@@ -1,18 +1,3 @@
-new Vue({
-    el: '#topic',
-    data: {
-        topic: "GoD",
-        by: 'By RANDOM cosmos'
-    }
-});
-
-new Vue({
-    el: "#welcome",
-    data: {
-        welcome: "Hope you like it"
-    }
-});
-
 function showWelcome() {
     $('#topic').css('display', 'none');
     $('#welcome').css('display', 'block');
@@ -30,5 +15,5 @@ function showDesktop() {
 
 setTimeout(showWelcome, 4000);
 setTimeout(showLoader, 8000);
-setTimeout(showDesktop, 19000);
-// setTimeout(showDesktop, 10);
+// setTimeout(showDesktop, 19000);
+setTimeout(showDesktop, 10);
